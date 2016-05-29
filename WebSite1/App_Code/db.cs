@@ -46,4 +46,28 @@ public class db : System.Web.UI.Page
         myconn.Close();
         return i;
     }
+
+    public Boolean RunNonQuery(string sql) {
+        SqlConnection myconn = new SqlConnection();
+        SqlCommand mycmd = new SqlCommand();
+
+        mycmd.CommandText = sql;
+        mycmd.Connection = myconn;
+
+        string mystr = ConfigurationManager.AppSettings["my_con_str"];
+        myconn.ConnectionString = mystr;
+        myconn.Open();
+
+        try
+        {
+            mycmd.ExecuteNonQuery();
+            myconn.Close();
+
+        }
+        catch {
+            myconn.Close();
+            return false;
+        }
+        return true;
+    }
 }
