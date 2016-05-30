@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+        <p>reg ok, you can <a href="login.aspx">login</a> now!</p>
+        
     </div>
     </form>
 </body>

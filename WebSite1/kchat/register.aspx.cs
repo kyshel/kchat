@@ -28,6 +28,8 @@ public partial class kchat_register : System.Web.UI.Page
             sql = "INSERT INTO users(user_name,user_password_hash,user_sex) VALUES ('"
             + user_name + "','" + user_pass + "','" + user_sex + "')";
             mydb.RunNonQuery(sql);
+
+            Server.Transfer("reg_ok.aspx");
         }
         else if (RadioButton2.Checked == true)
         {
@@ -35,6 +37,7 @@ public partial class kchat_register : System.Web.UI.Page
             sql = "INSERT INTO users(user_name,user_password_hash,user_sex) VALUES ('"
             + user_name + "','" + user_pass + "','" + user_sex + "')";
             mydb.RunNonQuery(sql);
+            Server.Transfer("reg_ok.aspx");
         }
         else {
             Response.Write("ÇëÑ¡ÔñÐÔ±ð£¡");

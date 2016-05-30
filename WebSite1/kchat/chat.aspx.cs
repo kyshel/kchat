@@ -13,6 +13,11 @@ public partial class kchat_chat : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if(Request.QueryString["logout"]=="true"){
+            Session.Clear();
+            //Response.Write("logout ok");
+        }
+
         //string user_name;
         if (Session["user_name"] == null)
         {
@@ -68,5 +73,9 @@ public partial class kchat_chat : System.Web.UI.Page
     {
         Application["show"] = "";
         Label1.Text = Convert.ToString(Application["show"]);
+    }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Server.Transfer("chat.aspx?logout=true");
     }
 }

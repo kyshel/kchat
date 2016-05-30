@@ -14,7 +14,10 @@ public partial class kchat_login : System.Web.UI.Page
     db mydb = new db();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["user_name"] != null)
+        {
+            Response.Redirect("chat.aspx");
+        }
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -22,9 +25,6 @@ public partial class kchat_login : System.Web.UI.Page
         string user_pass = TextBox2.Text;
         string sql = "SELECT user_name FROM users WHERE user_name='" + user_name 
             + "' AND user_password_hash='"+user_pass+"'";
-
-
-
         int i = mydb.Rownum(sql, ref user_name); // check
         if (i > 0)
         {

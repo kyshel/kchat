@@ -21,7 +21,9 @@
         ----------------------------------------------------------------------------------------<br />
         <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="ClearApplication" /><br />
         <br />
-        <asp:Label ID="Label3" runat="server" Height="39px" Width="495px"></asp:Label></div>
+        <asp:Label ID="Label3" runat="server" Height="39px" Width="495px"></asp:Label>
+        <br />
+        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="logout" /></div>
     </form>
 </body>
 </html>
