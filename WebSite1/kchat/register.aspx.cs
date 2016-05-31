@@ -22,11 +22,12 @@ public partial class kchat_register : System.Web.UI.Page
         string user_name = TextBox1.Text;
         string user_pass = TextBox2.Text;
         string user_sex;
+        string reg_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
         if (RadioButton1.Checked == true)
         {
             user_sex = "ÄÐ";
-            sql = "INSERT INTO users(user_name,user_password_hash,user_sex) VALUES ('"
-            + user_name + "','" + user_pass + "','" + user_sex + "')";
+            sql = "INSERT INTO users(user_name,user_password_hash,user_sex,user_reg_time) VALUES ('"
+            + user_name + "','" + user_pass + "','" + user_sex + "','"+reg_time+"')";
             mydb.RunNonQuery(sql);
 
             Server.Transfer("reg_ok.aspx");
@@ -34,8 +35,8 @@ public partial class kchat_register : System.Web.UI.Page
         else if (RadioButton2.Checked == true)
         {
             user_sex = "Å®";
-            sql = "INSERT INTO users(user_name,user_password_hash,user_sex) VALUES ('"
-            + user_name + "','" + user_pass + "','" + user_sex + "')";
+            sql = "INSERT INTO users(user_name,user_password_hash,user_sex,user_reg_time) VALUES ('"
+            + user_name + "','" + user_pass + "','" + user_sex + "','" + reg_time + "')";
             mydb.RunNonQuery(sql);
             Server.Transfer("reg_ok.aspx");
         }
