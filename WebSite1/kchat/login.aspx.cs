@@ -24,7 +24,7 @@ public partial class kchat_login : System.Web.UI.Page
         string user_name = TextBox1.Text;
         string user_pass = TextBox2.Text;
         string sql = "SELECT user_name FROM users WHERE user_name='" + user_name 
-            + "' AND user_password_hash='"+user_pass+"'";
+            + "' AND user_password='"+user_pass+"'";
         int i = mydb.Rownum(sql, ref user_name); // check
         if (i > 0)
         {

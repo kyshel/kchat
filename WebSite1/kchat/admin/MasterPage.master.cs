@@ -8,20 +8,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using System.Data.SqlClient;
 
-public partial class kchat_admin : System.Web.UI.Page
+public partial class kchat_admin_MasterPage : System.Web.UI.MasterPage
 {
-    
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    
-
 }
