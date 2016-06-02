@@ -11,9 +11,13 @@ using System.Web.UI.HtmlControls;
 
 public partial class kchat_chat : System.Web.UI.Page
 {
+    db mydb = new db();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if(Request.QueryString["logout"]=="true"){
+            string sql2 = "UPDATE users SET user_online='0' WHERE user_name = '" + Session["user_name"].ToString() + "'";
+            mydb.RunNonQuery(sql2);
             Session.Clear();
             //Response.Write("logout ok");
         }
@@ -29,7 +33,11 @@ public partial class kchat_chat : System.Web.UI.Page
             Label3.Text += "<br>user_pass:" + Session["user_pass"].ToString();
         }
 
+        //refresh new message
+        Response.AppendHeader("Refresh", "10");
+
         if (Page.IsPostBack != true)
+        //if (true)
         {
             int Number;
             if (Request.Cookies["Number"] == null)
@@ -43,13 +51,32 @@ public partial class kchat_chat : System.Web.UI.Page
                 Number = Convert.ToInt32(Request.Cookies["Number"].Value) + 1;
                 Response.Cookies["Number"].Value = Convert.ToString(Number);
             }
-            Label2.Text = Session["user_name"] + "，你好，你是第" + Number + "次光临本聊天室";
+            Label2.Text = Session["user_name"] + "，你好，你是第" + Number + "次光临本聊天室";                        
+        }
+                
+        // appliation verify online
+        // Label4.Text = "<br> online counter:" + Application["counter"].ToString()
+
+        // db verify online
+        string sql_online = "SELECT * FROM users WHERE user_online= '1'";
+        int online_num = mydb.Rownum(sql_online);
+        Label4.Text = "<br> db counter: " + online_num;
+
+        DataSet myds = new DataSet();
+        myds = mydb.run_sql(sql_online, "on_users");
+
+        for(int t = 0; t < online_num; t++){
+            DataRow mydr = myds.Tables["on_users"].Rows[t];
+            Label4.Text += "<br>"+mydr["user_name"].ToString();
         }
 
         if (Application["show"] != null)
             Label1.Text = Convert.ToString(Application["show"]);
 
     }
+
+
+
 
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -65,7 +92,6 @@ public partial class kchat_chat : System.Web.UI.Page
             Application.UnLock();
             TextBox1.Text = "";
             Label1.Text = Convert.ToString(Application["show"]);
-
         }
 
     }

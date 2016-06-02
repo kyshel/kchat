@@ -22,7 +22,8 @@ public class db : System.Web.UI.Page
 	}
 
     
-
+    // rows count
+    /*
     public int Rownum(string sql, ref string user_name) {
         
 
@@ -46,7 +47,33 @@ public class db : System.Web.UI.Page
         myconn.Close();
         return i;
     }
+    */
 
+    public int Rownum(string sql)
+    {
+        SqlConnection myconn = new SqlConnection();
+        SqlCommand mycmd = new SqlCommand();
+
+        mycmd.CommandText = sql;
+        mycmd.Connection = myconn;
+
+        string mystr = ConfigurationManager.AppSettings["my_con_str"];
+        myconn.ConnectionString = mystr;
+        myconn.Open();
+
+        int i = 0;
+
+        SqlDataReader myreader = mycmd.ExecuteReader();
+        while (myreader.Read())
+        {        
+            i++;
+        }
+        myconn.Close();
+        return i;
+    }
+
+
+    //as book
     public Boolean RunNonQuery(string sql) {
         SqlConnection myconn = new SqlConnection();
         SqlCommand mycmd = new SqlCommand();
@@ -69,5 +96,46 @@ public class db : System.Web.UI.Page
             return false;
         }
         return true;
+    }
+
+    //only return one line, string type
+    public string sql_one(string sql)
+    {
+        SqlConnection myconn = new SqlConnection();
+        SqlCommand mycmd = new SqlCommand();
+
+        mycmd.CommandText = sql;
+        mycmd.Connection = myconn;
+
+        string mystr = ConfigurationManager.AppSettings["my_con_str"];
+        myconn.ConnectionString = mystr;
+        myconn.Open();
+
+        string i;
+
+        SqlDataReader myreader = mycmd.ExecuteReader();
+        i = myreader[0].ToString();
+
+        myconn.Close();
+        return i;
+    }
+
+    public DataSet run_sql(string sql,string tname)
+    {
+
+        SqlConnection myconn = new SqlConnection();
+
+        string mystr;
+        mystr = ConfigurationManager.AppSettings["my_con_str"];
+        myconn.ConnectionString = mystr;
+        myconn.Open();
+
+        SqlDataAdapter myda = new SqlDataAdapter(sql,myconn);
+        DataSet myds = new DataSet();
+        myda.Fill(myds, tname);
+        myconn.Close();
+
+        return myds;
+
     }
 }

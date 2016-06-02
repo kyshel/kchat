@@ -25,12 +25,14 @@ public partial class kchat_login : System.Web.UI.Page
         string user_pass = TextBox2.Text;
         string sql = "SELECT user_name FROM users WHERE user_name='" + user_name 
             + "' AND user_password='"+user_pass+"'";
-        int i = mydb.Rownum(sql, ref user_name); // check
+        int i = mydb.Rownum(sql); // check
         if (i > 0)
         {
+            string sql2 = "UPDATE users SET user_online='1' WHERE user_name = '"+user_name+"'";
+            mydb.RunNonQuery(sql2);
             Session["user_name"] = TextBox1.Text.Trim();
             Session["user_pass"] = TextBox2.Text.Trim();
-            Server.Transfer("chat.aspx");
+            Response.Redirect("chat.aspx");
         }
         else {
             Response.Write("wrong password");
