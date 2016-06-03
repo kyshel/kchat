@@ -23,10 +23,14 @@
         <br />
         <asp:RadioButton ID="RadioButton2" runat="server" GroupName="sex" Text="Å®" /><br />
         <br />
+<<<<<<< HEAD
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="×¢²á" />
         <a href="login.aspx">back to login</a>
         
         </div>
+=======
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="×¢²á" /></div>
+>>>>>>> ae312f6bb2b6cba83d4a0a750ef6c91be45042c9
     </form>
 </body>
 </html>

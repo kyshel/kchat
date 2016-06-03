@@ -38,7 +38,11 @@ public partial class kchat_login : System.Web.UI.Page
             Response.Write("wrong password");
         }
 
+<<<<<<< HEAD
         
+=======
+        Response.Write(i + "<br>" + user_name);
+>>>>>>> ae312f6bb2b6cba83d4a0a750ef6c91be45042c9
 
     }
     protected void LinkButton1_Click(object sender, EventArgs e)

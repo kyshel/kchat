@@ -10,7 +10,10 @@
     <a href="index.aspx">index</a>
     <a href="record.aspx">record</a>
     <a href="manage.aspx">manage</a>
+<<<<<<< HEAD
     <a href="../chat.aspx">frontend</a>
+=======
+>>>>>>> ae312f6bb2b6cba83d4a0a750ef6c91be45042c9
     
     <form id="form1" runat="server">
     <div>

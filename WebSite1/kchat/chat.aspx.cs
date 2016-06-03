@@ -34,7 +34,11 @@ public partial class kchat_chat : System.Web.UI.Page
         }
 
         //refresh new message
+<<<<<<< HEAD
         //Response.AppendHeader("Refresh", "10");
+=======
+        Response.AppendHeader("Refresh", "10");
+>>>>>>> ae312f6bb2b6cba83d4a0a750ef6c91be45042c9
 
         if (Page.IsPostBack != true)
         //if (true)
@@ -88,7 +92,11 @@ public partial class kchat_chat : System.Web.UI.Page
         if (TextBox1.Text != "")
         {
             Application.Lock();
+<<<<<<< HEAD
             Application["show"] = Application["show"]+time + " " + ip_mask + " " + name + ": " + TextBox1.Text + "<br>";
+=======
+            Application["show"] = Application["show"] + "<br>" + time + " " + ip_mask + " " + name + ": " + TextBox1.Text;
+>>>>>>> ae312f6bb2b6cba83d4a0a750ef6c91be45042c9
             Application.UnLock();
             TextBox1.Text = "";
             Label1.Text = Convert.ToString(Application["show"]);
@@ -104,6 +112,7 @@ public partial class kchat_chat : System.Web.UI.Page
     {
         Server.Transfer("chat.aspx?logout=true");
     }
+<<<<<<< HEAD
     protected void Button4_Click(object sender, EventArgs e)
     {
         Response.Redirect("admin/index.aspx");
@@ -123,4 +132,6 @@ public partial class kchat_chat : System.Web.UI.Page
             }
         }
     }
+=======
+>>>>>>> ae312f6bb2b6cba83d4a0a750ef6c91be45042c9
 }
