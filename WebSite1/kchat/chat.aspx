@@ -9,10 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        Simple Chat&nbsp; Room<br />
-        <asp:Label ID="Label1" runat="server" Height="4px" Width="218px" Visible="False"></asp:Label><br />
-    <br />
-    <iframe id="Iframe1" src="talk.aspx" style="width:586px;height:231px;"></iframe>
+        Simple Chat&nbsp; Room<asp:Label ID="Label1" runat="server" Height="1px" Width="241px" Visible="False"></asp:Label><br />
+    <iframe id="Iframe1" src="talk.aspx" style="width:540px;height:184px;"></iframe>
     <br />
     
         <br />

@@ -13,19 +13,19 @@
     <asp:BoundField DataField="user_online" HeaderText="user_online" SortExpression="user_online" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:kchatConnectionString %>"
         DeleteCommand="DELETE FROM [users] WHERE [user_id] = @user_id" InsertCommand="INSERT INTO [users] ([user_name], [user_password], [user_sex], [user_reg_time], [user_online]) VALUES (@user_name, @user_password, @user_sex, @user_reg_time, @user_online)"
         SelectCommand="SELECT * FROM [users]" UpdateCommand="UPDATE [users] SET [user_name] = @user_name, [user_password] = @user_password, [user_sex] = @user_sex, [user_reg_time] = @user_reg_time, [user_online] = @user_online WHERE [user_id] = @user_id">
         <DeleteParameters>
-    <asp:Parameter Name="user_id" Type="Int32" />
+        <asp:Parameter Name="user_id" Type="Int32" />
         </DeleteParameters>
         <UpdateParameters>
-    <asp:Parameter Name="user_name" Type="String" />
-    <asp:Parameter Name="user_password" Type="String" />
-    <asp:Parameter Name="user_sex" Type="String" />
-    <asp:Parameter Name="user_reg_time" Type="String" />
-    <asp:Parameter Name="user_online" Type="String" />
-    <asp:Parameter Name="user_id" Type="Int32" />
+        <asp:Parameter Name="user_name" Type="String" />
+        <asp:Parameter Name="user_password" Type="String" />
+        <asp:Parameter Name="user_sex" Type="String" />
+        <asp:Parameter Name="user_reg_time" Type="String" />
+        <asp:Parameter Name="user_online" Type="String" />
+        <asp:Parameter Name="user_id" Type="Int32" />
         </UpdateParameters>
         <InsertParameters>
     <asp:Parameter Name="user_name" Type="String" />
