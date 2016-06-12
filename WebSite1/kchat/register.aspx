@@ -6,27 +6,51 @@
 <head runat="server">
     <title>Untitled Page</title>
 </head>
-<body>
+<body >
     <form id="form1" runat="server">
     <div>
-        register<br />
-        name:<br />
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1"
-            ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator><br />
-        password:<br />
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2"
-            ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator><br />
-        sex:<br />
-        <asp:RadioButton ID="RadioButton1" runat="server" GroupName="sex" Text="ÄÐ" />
-        <br />
-        <asp:RadioButton ID="RadioButton2" runat="server" GroupName="sex" Text="Å®" /><br />
-        <br />
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="×¢²á" />
+    <asp:Image ID="Image1" runat="server" ImageUrl="f/win7_1360x7681.jpg" />
+    <table style="width: 743px;
+        height: 200px; text-align: left; left: 323px; position: relative; top: -562px;" >
+        <tr>
+            <td colspan="2" style="text-align: left">
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; kchat
+                registe<br />
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 17px">
+        name:</td>
+            <td style="width: 397px">
+        <asp:TextBox ID="TextBox1" runat="server" Width="115px"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1"
+            ErrorMessage="name must set"></asp:RequiredFieldValidator></td>
+        </tr>
+        <tr>
+            <td style="width: 17px">
+        password:</td>
+            <td style="width: 397px">
+        <asp:TextBox ID="TextBox2" runat="server" Width="114px"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2"
+            ErrorMessage="password must set"></asp:RequiredFieldValidator></td>
+        </tr>
+        <tr>
+            <td style="width: 17px">
+        sex:</td>
+            <td style="width: 397px">
+        <asp:RadioButton ID="RadioButton2" runat="server" GroupName="sex" Text="Å®" /><asp:RadioButton ID="RadioButton1" runat="server" GroupName="sex" Text="ÄÐ" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <br />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="registe" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="height: 33px">
         <a href="login.aspx">back to login</a>
-        
-        </div>
+            </td>
+        </tr>
+    </table>
+    </div>
     </form>
 </body>
 </html>

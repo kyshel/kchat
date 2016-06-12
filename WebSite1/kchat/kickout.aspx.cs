@@ -13,6 +13,9 @@ public partial class kchat_kickout : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Write("You was kicked out cause fuck words");
+        Session.Clear();
+        //Session.Abandon();
+        Response.Write("You were kicked out cause mask words.<br><br>");
+        Response.Write("<a href='login.aspx'>return login page</a>");
     }
 }

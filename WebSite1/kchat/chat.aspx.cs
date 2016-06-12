@@ -15,13 +15,19 @@ public partial class kchat_chat : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        /********************hide develop buttons ************/
+        Label5.Visible = false;//upload1 
+        Label6.Visible = false;//upload2
+        Label3.Visible = false;//user info
+      
+        /********************log out ************/
         if(Request.QueryString["logout"]=="true"){
             string sql2 = "UPDATE users SET user_online='0' WHERE user_name = '" + Session["user_name"].ToString() + "'";
             mydb.RunNonQuery(sql2);
             Session.Clear();
         }
 
-        //********************user info ************/
+        /********************user info ************/
         if (Session["user_name"] == null)
         {
             Response.Redirect("login.aspx");
@@ -30,6 +36,11 @@ public partial class kchat_chat : System.Web.UI.Page
         {
             Label3.Text = "user_name:" + Session["user_name"].ToString();
             Label3.Text += "<br>user_pass:" + Session["user_pass"].ToString();
+            if (Session["user_name"].ToString() != "a")
+            {
+                Button4.Visible = false;//admin panel
+                Button2.Visible = false;//clear application
+            }
         }
 
         //refresh new message
@@ -60,10 +71,11 @@ public partial class kchat_chat : System.Web.UI.Page
         // db verify online
         string sql_online = "SELECT * FROM users WHERE user_online= '1'";
         int online_num = mydb.Rownum(sql_online);
-        Label4.Text = "<br> db counter: " + online_num;
+        Label4.Text = "online sum: " + online_num;
         // statistic every person
         DataSet myds = new DataSet();
         myds = mydb.run_sql(sql_online, "on_users");
+        Label4.Text += "<br> online users: " ;
         for(int t = 0; t < online_num; t++){
             DataRow mydr = myds.Tables["on_users"].Rows[t];
             Label4.Text += "<br>"+mydr["user_name"].ToString();
@@ -91,7 +103,6 @@ public partial class kchat_chat : System.Web.UI.Page
             string mes = TextBox1.Text;
             string[] sPattern ={
             "Æ»¹û",
-            "Ìð¹Ï",
             "²¤ÂÜ",
             "Å£ÄÌ"
             };

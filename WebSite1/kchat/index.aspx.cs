@@ -15,4 +15,8 @@ public partial class kchat_index : System.Web.UI.Page
     {
 
     }
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
 }

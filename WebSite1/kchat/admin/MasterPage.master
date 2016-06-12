@@ -8,9 +8,8 @@
 </head>
 <body>
     <a href="index.aspx">index</a>
-    <a href="record.aspx">record</a>
     <a href="manage.aspx">manage</a>
-    <a href="../chat.aspx">frontend</a>
+    <a href="../chat.aspx">chat</a>
     
     <form id="form1" runat="server">
     <div>

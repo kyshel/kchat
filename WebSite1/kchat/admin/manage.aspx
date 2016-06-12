@@ -37,18 +37,5 @@
     </asp:SqlDataSource>
     <br />
     <br />
-    <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False"
-        DataKeyNames="user_id" DataSourceID="SqlDataSource1" Height="50px" Width="125px">
-        <Fields>
-            <asp:BoundField DataField="user_id" HeaderText="user_id" InsertVisible="False" ReadOnly="True"
-                SortExpression="user_id" />
-            <asp:BoundField DataField="user_name" HeaderText="user_name" SortExpression="user_name" />
-            <asp:BoundField DataField="user_password" HeaderText="user_password" SortExpression="user_password" />
-            <asp:BoundField DataField="user_sex" HeaderText="user_sex" SortExpression="user_sex" />
-            <asp:BoundField DataField="user_reg_time" HeaderText="user_reg_time" SortExpression="user_reg_time" />
-            <asp:BoundField DataField="user_online" HeaderText="user_online" SortExpression="user_online" />
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
-        </Fields>
-    </asp:DetailsView>
 </asp:Content>
 

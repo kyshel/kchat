@@ -8,8 +8,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <p>Welcome to kchat</p>
+    <div style="text-align: center">
+        <p style="text-align: center">
+    &nbsp;</p>
+    <p style="text-align: center">
+        <asp:Image ID="Image1" runat="server" Height="205px" ImageUrl="f\Winter.jpg" Width="384px" />&nbsp;</p>
+    <p style="text-align: center">
+        Welcome to kchat</p>
         <a href="chat.aspx">chat now</a>
     </div>
     </form>
